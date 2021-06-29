@@ -37,4 +37,7 @@ extension UIColor {
     
     /// #65A7DF
     static let secondaryBlueColor = #colorLiteral(red: 0.3960784314, green: 0.6549019608, blue: 0.8745098039, alpha: 1)
+    
+    /// #E8E8E9
+    static let borderTextFieldColor = #colorLiteral(red: 0.9098039216, green: 0.9098039216, blue: 0.9137254902, alpha: 1)
 }
