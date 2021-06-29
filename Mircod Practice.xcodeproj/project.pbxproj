@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04A22860268A078600984B7D /* Mircod_Practice.xcdatamodeld */; };
 		04A22864268A078A00984B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A22863268A078A00984B7D /* Assets.xcassets */; };
 		04A22867268A078A00984B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A22865268A078A00984B7D /* LaunchScreen.storyboard */; };
+		04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A228A2268B5E7700984B7D /* UIColorExtension.swift */; };
+		BB6C886857845B38B4928F54 /* Pods_Mircod_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14EB2A52F831362E10A4B16 /* Pods_Mircod_Practice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		04A22863268A078A00984B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A22866268A078A00984B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A22868268A078A00984B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A228A2268B5E7700984B7D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		5E1B25FE3DB73FB7456B9942 /* Pods-Mircod Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mircod Practice.debug.xcconfig"; path = "Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice.debug.xcconfig"; sourceTree = "<group>"; };
+		C0291C80A4A7D90943C155F0 /* Pods-Mircod Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mircod Practice.release.xcconfig"; path = "Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice.release.xcconfig"; sourceTree = "<group>"; };
+		F14EB2A52F831362E10A4B16 /* Pods_Mircod_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mircod_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6C886857845B38B4928F54 /* Pods_Mircod_Practice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				04A22856268A078600984B7D /* Mircod Practice */,
 				04A22855268A078600984B7D /* Products */,
+				CC1E35372F1A1B702040F86F /* Pods */,
+				4D52C13AEE4A028831382149 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +67,7 @@
 		04A22856268A078600984B7D /* Mircod Practice */ = {
 			isa = PBXGroup;
 			children = (
+				04A228A0268B5D3E00984B7D /* Helpers */,
 				04A22857268A078600984B7D /* AppDelegate.swift */,
 				04A22859268A078600984B7D /* SceneDelegate.swift */,
 				04A2285B268A078600984B7D /* ViewController.swift */,
@@ -70,6 +80,39 @@
 			path = "Mircod Practice";
 			sourceTree = "<group>";
 		};
+		04A228A0268B5D3E00984B7D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04A228A1268B5DA200984B7D /* UI */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04A228A1268B5DA200984B7D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				04A228A2268B5E7700984B7D /* UIColorExtension.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4D52C13AEE4A028831382149 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F14EB2A52F831362E10A4B16 /* Pods_Mircod_Practice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC1E35372F1A1B702040F86F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E1B25FE3DB73FB7456B9942 /* Pods-Mircod Practice.debug.xcconfig */,
+				C0291C80A4A7D90943C155F0 /* Pods-Mircod Practice.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04A2286B268A078A00984B7D /* Build configuration list for PBXNativeTarget "Mircod Practice" */;
 			buildPhases = (
+				3F1243E7F92B92344A80EF86 /* [CP] Check Pods Manifest.lock */,
 				04A22850268A078600984B7D /* Sources */,
 				04A22851268A078600984B7D /* Frameworks */,
 				04A22852268A078600984B7D /* Resources */,
+				9113D430DE894ED3CA4287D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +180,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F1243E7F92B92344A80EF86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mircod Practice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9113D430DE894ED3CA4287D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04A22850268A078600984B7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -142,6 +229,7 @@
 			files = (
 				04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */,
 				04A2285C268A078600984B7D /* ViewController.swift in Sources */,
+				04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */,
 				04A22858268A078600984B7D /* AppDelegate.swift in Sources */,
 				04A2285A268A078600984B7D /* SceneDelegate.swift in Sources */,
 			);
@@ -287,6 +375,7 @@
 		};
 		04A2286C268A078A00984B7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E1B25FE3DB73FB7456B9942 /* Pods-Mircod Practice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +395,7 @@
 		};
 		04A2286D268A078A00984B7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0291C80A4A7D90943C155F0 /* Pods-Mircod Practice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
