@@ -21,6 +21,4 @@ extension UIButton {
     func changeColor(isActive: Bool) {
         self.backgroundColor = isActive ? UIColor.mainOrangeColor : UIColor.mainDarkGreyColor
     }
-    
-                     
 }

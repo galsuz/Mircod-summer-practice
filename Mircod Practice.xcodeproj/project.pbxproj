@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0406F199268CEB20007A44EF /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406F195268CEB20007A44EF /* UITextFieldExtension.swift */; };
+		0406F19A268CEB20007A44EF /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406F196268CEB20007A44EF /* UIButtonExtension.swift */; };
+		0406F19B268CEB20007A44EF /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406F197268CEB20007A44EF /* UIStackViewExtension.swift */; };
+		0406F19C268CEB20007A44EF /* UISegementedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406F198268CEB20007A44EF /* UISegementedControlExtension.swift */; };
+		0406F1A2268CEDC8007A44EF /* UISimpleButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406F1A1268CEDC8007A44EF /* UISimpleButtonExtension.swift */; };
 		04A22858268A078600984B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A22857268A078600984B7D /* AppDelegate.swift */; };
 		04A2285A268A078600984B7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A22859268A078600984B7D /* SceneDelegate.swift */; };
 		04A2285C268A078600984B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2285B268A078600984B7D /* ViewController.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0406F195268CEB20007A44EF /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		0406F196268CEB20007A44EF /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		0406F197268CEB20007A44EF /* UIStackViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		0406F198268CEB20007A44EF /* UISegementedControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegementedControlExtension.swift; sourceTree = "<group>"; };
+		0406F1A1268CEDC8007A44EF /* UISimpleButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISimpleButtonExtension.swift; sourceTree = "<group>"; };
 		04A22854268A078600984B7D /* Mircod Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mircod Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A22857268A078600984B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A22859268A078600984B7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +101,12 @@
 		04A228A1268B5DA200984B7D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0406F196268CEB20007A44EF /* UIButtonExtension.swift */,
+				0406F198268CEB20007A44EF /* UISegementedControlExtension.swift */,
+				0406F197268CEB20007A44EF /* UIStackViewExtension.swift */,
+				0406F195268CEB20007A44EF /* UITextFieldExtension.swift */,
 				04A228A2268B5E7700984B7D /* UIColorExtension.swift */,
+				0406F1A1268CEDC8007A44EF /* UISimpleButtonExtension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -228,8 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */,
+				0406F19B268CEB20007A44EF /* UIStackViewExtension.swift in Sources */,
+				0406F19C268CEB20007A44EF /* UISegementedControlExtension.swift in Sources */,
+				0406F199268CEB20007A44EF /* UITextFieldExtension.swift in Sources */,
 				04A2285C268A078600984B7D /* ViewController.swift in Sources */,
+				0406F1A2268CEDC8007A44EF /* UISimpleButtonExtension.swift in Sources */,
 				04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */,
+				0406F19A268CEB20007A44EF /* UIButtonExtension.swift in Sources */,
 				04A22858268A078600984B7D /* AppDelegate.swift in Sources */,
 				04A2285A268A078600984B7D /* SceneDelegate.swift in Sources */,
 			);
