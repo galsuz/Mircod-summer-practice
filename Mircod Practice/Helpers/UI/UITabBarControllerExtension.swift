@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 extension UITabBarController {
-//    convenience init(customTabBar: Bool) {
-//        self.init()
-//    }
     
-    func addElements(){
-        let tabBarImages = TabBarImagesModel()
-        self.tabBar.items? = [UITabBarItem.init(title: nil, image: tabBarImages.homeGreyImage, selectedImage: tabBarImages.homeOrangeImage),
-                              UITabBarItem.init(title: nil, image: tabBarImages.profileGreyImage, selectedImage: tabBarImages.profileOrangeImage),
-                              UITabBarItem.init(title: nil, image: tabBarImages.settingsGreyImage, selectedImage: tabBarImages.profileOrangeImage)]
+    func createNavController(vc: UIViewController, selectedImage: UIImage, unselectedImage: UIImage) -> UINavigationController {
+        
+        let viewController = vc
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem.image = unselectedImage
+        navController.tabBarItem.selectedImage = selectedImage
+        return navController
     }
 }
