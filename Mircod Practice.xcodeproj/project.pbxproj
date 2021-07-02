@@ -15,6 +15,10 @@
 		04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A228A2268B5E7700984B7D /* UIColorExtension.swift */; };
 		67404C4A268E10940016A924 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C49268E10940016A924 /* CustomTabBarController.swift */; };
 		67404C4C268E27DA0016A924 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C4B268E27DA0016A924 /* SceneDelegate.swift */; };
+		67404C4E268E6B070016A924 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C4D268E6B070016A924 /* LoginViewController.swift */; };
+		67404C50268E6B9D0016A924 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C4F268E6B9D0016A924 /* LoginViewModel.swift */; };
+		67404C52268E6DAC0016A924 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C51268E6DAC0016A924 /* LoginView.swift */; };
+		67404C54268E6DC90016A924 /* LoginView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67404C53268E6DC90016A924 /* LoginView + Extension.swift */; };
 		6793D7E0268CE3EB00865C5C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7DC268CE3EB00865C5C /* UIButtonExtension.swift */; };
 		6793D7E1268CE3EB00865C5C /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7DD268CE3EB00865C5C /* UIStackViewExtension.swift */; };
 		6793D7E2268CE3EB00865C5C /* UISegementedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7DE268CE3EB00865C5C /* UISegementedControlExtension.swift */; };
@@ -36,6 +40,10 @@
 		5E1B25FE3DB73FB7456B9942 /* Pods-Mircod Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mircod Practice.debug.xcconfig"; path = "Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		67404C49268E10940016A924 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		67404C4B268E27DA0016A924 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		67404C4D268E6B070016A924 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		67404C4F268E6B9D0016A924 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		67404C51268E6DAC0016A924 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		67404C53268E6DC90016A924 /* LoginView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView + Extension.swift"; sourceTree = "<group>"; };
 		6793D7DC268CE3EB00865C5C /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		6793D7DD268CE3EB00865C5C /* UIStackViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		6793D7DE268CE3EB00865C5C /* UISegementedControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegementedControlExtension.swift; sourceTree = "<group>"; };
@@ -128,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				67404C49268E10940016A924 /* CustomTabBarController.swift */,
+				67404C4D268E6B070016A924 /* LoginViewController.swift */,
+				67404C51268E6DAC0016A924 /* LoginView.swift */,
+				67404C53268E6DC90016A924 /* LoginView + Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +146,7 @@
 		67404C47268E10560016A924 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				67404C4F268E6B9D0016A924 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -278,15 +290,19 @@
 			files = (
 				04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */,
 				6793D7E8268CF26200865C5C /* UITabBarControllerExtension.swift in Sources */,
+				67404C54268E6DC90016A924 /* LoginView + Extension.swift in Sources */,
 				67404C4A268E10940016A924 /* CustomTabBarController.swift in Sources */,
+				67404C52268E6DAC0016A924 /* LoginView.swift in Sources */,
 				6793D7E6268CEB3200865C5C /* TabBarImagesModel.swift in Sources */,
 				6793D7E3268CE3EB00865C5C /* UITextFieldExtension.swift in Sources */,
 				04A2285C268A078600984B7D /* ViewController.swift in Sources */,
+				67404C50268E6B9D0016A924 /* LoginViewModel.swift in Sources */,
 				6793D7E2268CE3EB00865C5C /* UISegementedControlExtension.swift in Sources */,
 				04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */,
 				04A22858268A078600984B7D /* AppDelegate.swift in Sources */,
 				6793D7E1268CE3EB00865C5C /* UIStackViewExtension.swift in Sources */,
 				6793D7E0268CE3EB00865C5C /* UIButtonExtension.swift in Sources */,
+				67404C4E268E6B070016A924 /* LoginViewController.swift in Sources */,
 				67404C4C268E27DA0016A924 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,13 +25,13 @@ class CustomTabBarController: UITabBarController {
         let vc3 = createNavController(vc: UIViewController(), selectedImage: #imageLiteral(resourceName: "settings-orange"), unselectedImage: #imageLiteral(resourceName: "settings-grey.png"))
         vc3.view.backgroundColor = .blue
         
+        tabBar.tintColor = UIColor.mainOrangeColor
+        
         viewControllers = [vc1,vc2,vc3]
         
         guard let items = tabBar.items else { return }
-        
         for item in items {
             item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -20, right: 0)
-            
         }
         
     }

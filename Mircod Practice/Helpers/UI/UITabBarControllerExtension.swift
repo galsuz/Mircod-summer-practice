@@ -16,6 +16,9 @@ extension UITabBarController {
         let navController = UINavigationController(rootViewController: viewController)
         navController.tabBarItem.image = unselectedImage
         navController.tabBarItem.selectedImage = selectedImage
+        
+        navController.tabBarItem.selectedImage?.withTintColor(UIColor.mainOrangeColor)
+        
         return navController
     }
 }
