@@ -9,11 +9,14 @@ import Foundation
 import UIKit
 
 extension UIStackView {
-    convenience init(textFields: [UITextField]) {
+    convenience init(views: [UIView],
+                     spacing: CGFloat = 11,
+                     axis: NSLayoutConstraint.Axis = .horizontal) {
         self.init()
-        self.spacing = 11
-        for textField in textFields {
-            self.addArrangedSubview(textField)
+        self.spacing = spacing
+        self.axis = axis
+        views.forEach { view in
+            addArrangedSubview(view)
         }
     }
 }

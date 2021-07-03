@@ -14,15 +14,24 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        createView()
+        createLoginView()
     }
     
-    private func createView(){
+    private func createLoginView(){
         loginView = LoginView()
         loginView.frame = view.frame
-        print(loginView.frame)
+        
         view.addSubview(loginView)
-        loginView.addViews()
+        
+        loginView.configureView()
+        
+        loginView.logInButton.addTarget(self, action: #selector(logInButtonDidPressed), for: .touchUpInside)
+    }
+    
+    
+    @objc
+    private func logInButtonDidPressed(){
+        print(#function)
     }
     
 }

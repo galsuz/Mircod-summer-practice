@@ -10,13 +10,11 @@ import UIKit
 
 extension UITabBarController {
     
-    func createNavController(vc: UIViewController, selectedImage: UIImage, unselectedImage: UIImage) -> UINavigationController {
+    func createNavController(vc: UIViewController, image: UIImage) -> UINavigationController {
         
         let viewController = vc
         let navController = UINavigationController(rootViewController: viewController)
-        navController.tabBarItem.image = unselectedImage
-        navController.tabBarItem.selectedImage = selectedImage
-        
+        navController.tabBarItem.image = image
         navController.tabBarItem.selectedImage?.withTintColor(UIColor.mainOrangeColor)
         
         return navController
