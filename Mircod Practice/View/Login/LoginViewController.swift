@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     private var loginView: LoginView!
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.isHidden = false
         super.viewDidLoad()
         view.backgroundColor = .white
         createLoginView()
@@ -32,6 +33,9 @@ class LoginViewController: UIViewController {
     @objc
     private func logInButtonDidPressed(){
         print(#function)
+        let customTabBarController = CustomTabBarController()
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(customTabBarController, animated: true)
     }
     
 }

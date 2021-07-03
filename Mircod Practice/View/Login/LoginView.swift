@@ -17,15 +17,17 @@ class LoginView: UIView, UITextFieldDelegate {
     lazy var logInButton: UIButton = UIButton(text: "Log in", isEnabled: false)
     
     func configureView(){
-        // Add subviews
-        addSubview(logInLabel)
-        addSubview(textFieldsStackView)
-        addSubview(logInButton)
+        addSubviews()
         
         // Elements configuration
         initConstraints()
         configureTextFields()
         configurelabel()
+    }
+    private func addSubviews(){
+        addSubview(logInLabel)
+        addSubview(textFieldsStackView)
+        addSubview(logInButton)
     }
     
     private func initConstraints(){

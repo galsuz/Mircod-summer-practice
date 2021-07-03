@@ -40,4 +40,10 @@ extension UIColor {
     
     /// #E8E8E9
     static let borderTextFieldColor = #colorLiteral(red: 0.9098039216, green: 0.9098039216, blue: 0.9137254902, alpha: 1)
+    
+    /// #D8D8D8
+    static let dividerColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+    
+    /// #979797
+    static let profileBackgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8941176471, blue: 0.9019607843, alpha: 1)
 }
