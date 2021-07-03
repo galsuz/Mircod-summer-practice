@@ -22,7 +22,7 @@ class CustomTabBarController: UITabBarController {
         vc1.view.backgroundColor = .red
         let vc2 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "home-grey"))
         vc2.view.backgroundColor = .green
-        let vc3 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "settings-grey.png"))
+        let vc3 = createNavController(vc: SettingsViewController(), image: #imageLiteral(resourceName: "settings-grey.png"))
         vc3.view.backgroundColor = .blue
         
         tabBar.tintColor = UIColor.mainOrangeColor
