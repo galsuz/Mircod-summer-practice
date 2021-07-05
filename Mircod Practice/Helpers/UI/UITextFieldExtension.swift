@@ -7,14 +7,18 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 extension UITextField {
     convenience init(placeholder: String) {
         self.init()
         self.placeholder = placeholder
         self.layer.cornerRadius = 5
-        self.frame.size.height = 52
         self.layer.borderColor = UIColor.borderTextFieldColor.cgColor
         self.layer.borderWidth = 1
+        
+        snp.makeConstraints { make in
+            make.height.equalTo(52)
+        }
     }
 }
