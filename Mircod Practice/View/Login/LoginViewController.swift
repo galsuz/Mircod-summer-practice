@@ -10,8 +10,10 @@ import UIKit
 class LoginViewController: UIViewController {
     
     private var loginView: LoginView!
+    var networkManager: NetworkManager!
     
     override func viewDidLoad() {
+        networkManager = NetworkManager()
         navigationController?.navigationBar.isHidden = false
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -34,6 +36,14 @@ class LoginViewController: UIViewController {
     private func logInButtonDidPressed(){
         print(#function)
         let customTabBarController = CustomTabBarController()
+        networkManager.postUserAuth(login: "Kirill228", password: "Alsu156") { userData, error in
+            if let error = error {
+                print(error)
+            }
+            if let userData = userData {
+                print(userData)
+            }
+        }
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(customTabBarController, animated: true)
     }
