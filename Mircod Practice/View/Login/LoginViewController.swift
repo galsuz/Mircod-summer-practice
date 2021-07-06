@@ -23,11 +23,8 @@ class LoginViewController: UIViewController {
     private func createLoginView(){
         loginView = LoginView()
         loginView.frame = view.frame
-        
         view.addSubview(loginView)
-        
         loginView.configureView()
-        
         loginView.logInButton.addTarget(self, action: #selector(logInButtonDidPressed), for: .touchUpInside)
     }
     
@@ -36,7 +33,7 @@ class LoginViewController: UIViewController {
     private func logInButtonDidPressed(){
         print(#function)
         let customTabBarController = CustomTabBarController()
-        networkManager.postUserAuth(login: "Kirill228", password: "Alsu156") { userData, error in
+        networkManager.getUserLogin(login: loginView.loginTextField.text!, password: loginView.passwordTextField.text!) { userData, error in
             if let error = error {
                 print(error)
             }
@@ -47,5 +44,4 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(customTabBarController, animated: true)
     }
-    
 }

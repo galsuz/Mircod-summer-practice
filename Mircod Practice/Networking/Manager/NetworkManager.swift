@@ -27,10 +27,44 @@ struct NetworkManager {
     static let enviroment: NetworkEnviroment = .debug
     private let router = Router<ConnectionAPI>()
     
-    func postUserAuth(login: String,
+    func getUserLogin(login: String,
                       password: String,
+                      completion: @escaping (_ userLoginResponse: Int?,_ error: String?) ->()){
+        router.request(.authorization(login: login, password: password)) { data, response, error in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        completion(response.statusCode, nil)
+                    } catch {
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func postUserRegistration(login: String,
+                      password: String,
+                      firstName: String = "",
+                      lastName: String = "",
+                      email: String = "",
                       completion: @escaping (_ userLoginResponse: UserLoginResponse?,_ error: String?) ->()){
-        router.request(.registration(login: login, password: password)) { data, response, error in
+        router.request(.registration(login: login,
+                                     password: password,
+                                     firstName: firstName,
+                                     lastName: lastName,
+                                     email: email)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your connection")
             }

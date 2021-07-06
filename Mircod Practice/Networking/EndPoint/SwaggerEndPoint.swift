@@ -15,7 +15,11 @@ enum NetworkEnviroment {
 
 public enum ConnectionAPI {
     case authorization(login: String, password: String)
-    case registration(login: String, password: String)
+    case registration(login: String,
+                      password: String,
+                      firstName: String,
+                      lastName: String,
+                      email: String)
 }
 
 extension ConnectionAPI: EndPointType {
@@ -46,18 +50,28 @@ extension ConnectionAPI: EndPointType {
     }
     
     var httpMethod: HTTPMethod {
-        return .post
+        switch self {
+        case .authorization:
+            return .post
+        case .registration:
+            return .post
+        }
     }
     
     var task: HTTPTask {
         switch self {
         case .authorization(let login, let password):
-            print("SwaggerEndPoint: login: \(login), password: \(password)")
-            return .requestParameters(bodyParameters: ["username":login, "password":password],
+//            print("SwaggerEndPoint: login: \(login), password: \(password)")
+            return .requestParameters(bodyParameters: [UserFields.username.rawValue:login,
+                                                       UserFields.password.rawValue:password],
                                       urlParameters: nil)
-        case .registration(let login, let password):
-            print("SwaggerEndPoint: login: \(login), password: \(password)")
-            return .requestParameters(bodyParameters: ["username":login, "password":password],
+        case .registration(let login, let password, let firstName, let lastName, let email):
+//            print("SwaggerEndPoint: login: \(login), password: \(password)")
+            return .requestParameters(bodyParameters: [UserFields.username.rawValue:login,
+                                                       UserFields.password.rawValue:password,
+                                                       UserFields.firstName.rawValue: firstName,
+                                                       UserFields.lastName.rawValue: lastName,
+                                                       UserFields.email.rawValue: email],
                                       urlParameters: nil)
         }
     }
@@ -65,4 +79,12 @@ extension ConnectionAPI: EndPointType {
     var headers: HTTPHeaders? {
         return nil
     }
+}
+
+enum UserFields: String {
+    case username = "username"
+    case password = "password"
+    case firstName = "first_name"
+    case lastName = "last_name"
+    case email = "email"
 }

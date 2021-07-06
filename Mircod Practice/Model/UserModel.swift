@@ -21,7 +21,6 @@ extension UserLoginResponse: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try? decoder.container(keyedBy: UserLoginResponseCodingKeys.self)
-        
         token = try container!.decode(String.self, forKey: .token)
         userData = try container!.decode(UserData.self, forKey: .userData)
     }

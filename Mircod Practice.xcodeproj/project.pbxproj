@@ -166,7 +166,7 @@
 		670B39AB2693006700B429EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				674AF8BF26938B3200A0C49F /* debug */,
+				674AF8BF26938B3200A0C49F /* Networking debug */,
 				670B39C1269344AC00B429EC /* Manager */,
 				670B39B426930BE500B429EC /* Encoders */,
 				670B39AF2693078400B429EC /* Service */,
@@ -249,12 +249,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		674AF8BF26938B3200A0C49F /* debug */ = {
+		674AF8BF26938B3200A0C49F /* Networking debug */ = {
 			isa = PBXGroup;
 			children = (
 				674AF8C026938B4400A0C49F /* ExtensionURLRequest.swift */,
 			);
-			path = debug;
+			path = "Networking debug";
 			sourceTree = "<group>";
 		};
 		6793D7E4268CEAE200865C5C /* Primitive */ = {

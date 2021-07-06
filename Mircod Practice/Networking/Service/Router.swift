@@ -16,9 +16,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         do {
             let request = try self.buildRequest(from: route)
             /// For devug url
-            //print("Router cURL: \(request.cURL)")
+            print("Router cURL: \(request.cURL)")
             task = session.dataTask(with: request, completionHandler: { data, response, error in
-                let outputStr  = String(data: request.httpBody!, encoding: String.Encoding.utf8) as String?
                 completion(data, response, error)
             })
         } catch {
