@@ -32,6 +32,8 @@
 		ED1FA8DA2692F7D600AAB83A /* UISimpleButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FA8D92692F7D600AAB83A /* UISimpleButtonExtension.swift */; };
 		ED1FA8DD2693383800AAB83A /* LoggedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FA8DC2693383800AAB83A /* LoggedOutView.swift */; };
 		ED1FA8DF269344B000AAB83A /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FA8DE269344B000AAB83A /* LoggedOutViewController.swift */; };
+		ED1FA8EC2693A7AC00AAB83A /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FA8EB2693A7AB00AAB83A /* RegistrationView.swift */; };
+		ED1FA8EE2693A7BA00AAB83A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1FA8ED2693A7BA00AAB83A /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		ED1FA8D92692F7D600AAB83A /* UISimpleButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISimpleButtonExtension.swift; sourceTree = "<group>"; };
 		ED1FA8DC2693383800AAB83A /* LoggedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutView.swift; sourceTree = "<group>"; };
 		ED1FA8DE269344B000AAB83A /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
+		ED1FA8EB2693A7AB00AAB83A /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		ED1FA8ED2693A7BA00AAB83A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F14EB2A52F831362E10A4B16 /* Pods_Mircod_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mircod_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +161,7 @@
 		67404C46268E10500016A924 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED1FA8EA2693A76100AAB83A /* Registration */,
 				ED1FA8DB2693380800AAB83A /* LoggedOut */,
 				67E8910C2690D3960017E959 /* TabBar */,
 				67E8910D2690D3AB0017E959 /* NavigationControllers */,
@@ -247,6 +252,15 @@
 				ED1FA8DE269344B000AAB83A /* LoggedOutViewController.swift */,
 			);
 			path = LoggedOut;
+			sourceTree = "<group>";
+		};
+		ED1FA8EA2693A76100AAB83A /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				ED1FA8EB2693A7AB00AAB83A /* RegistrationView.swift */,
+				ED1FA8ED2693A7BA00AAB83A /* RegistrationViewController.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +381,7 @@
 				6793D7E8268CF26200865C5C /* UITabBarControllerExtension.swift in Sources */,
 				670FB9F7268F8EB200482ACD /* LoginNavigationController.swift in Sources */,
 				67404C4A268E10940016A924 /* CustomTabBarController.swift in Sources */,
+				ED1FA8EE2693A7BA00AAB83A /* RegistrationViewController.swift in Sources */,
 				67404C52268E6DAC0016A924 /* LoginView.swift in Sources */,
 				6793D7E6268CEB3200865C5C /* TabBarImagesModel.swift in Sources */,
 				67E8910A2690D3670017E959 /* ProfileViewController.swift in Sources */,
@@ -374,6 +389,7 @@
 				6793D7E3268CE3EB00865C5C /* UITextFieldExtension.swift in Sources */,
 				ED1FA8DA2692F7D600AAB83A /* UISimpleButtonExtension.swift in Sources */,
 				04A2285C268A078600984B7D /* ViewController.swift in Sources */,
+				ED1FA8EC2693A7AC00AAB83A /* RegistrationView.swift in Sources */,
 				67404C50268E6B9D0016A924 /* LoginViewModel.swift in Sources */,
 				67E891082690C7A60017E959 /* ProfileView.swift in Sources */,
 				6793D7E2268CE3EB00865C5C /* UISegementedControlExtension.swift in Sources */,

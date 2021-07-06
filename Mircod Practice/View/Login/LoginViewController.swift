@@ -26,16 +26,23 @@ class LoginViewController: UIViewController {
         
         loginView.configureView()
         
+        loginView.backButton.addTarget(self, action: #selector(backButtonDidPressed), for: .touchUpInside)
+        
         loginView.logInButton.addTarget(self, action: #selector(logInButtonDidPressed), for: .touchUpInside)
     }
     
-    
+    // MARK: - Actions
     @objc
     private func logInButtonDidPressed(){
-        print(#function)
         let customTabBarController = CustomTabBarController()
-        //self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(customTabBarController, animated: true)
+    }
+    
+    @objc
+    private func backButtonDidPressed() {
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

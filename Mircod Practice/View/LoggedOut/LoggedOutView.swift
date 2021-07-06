@@ -10,6 +10,8 @@ import SnapKit
 
 class LoggedOutView: UIView {
     
+    lazy var backButton = UIButton()
+    
     lazy var buttonsStackView: UIStackView = UIStackView(views: [logInButton, registerButton],
                                                          spacing: 13,
                                                          axis: .horizontal,
@@ -23,10 +25,12 @@ class LoggedOutView: UIView {
     
     var demoLabel = UILabel()
     
+//    var backArrowButton = UIImageView = Ima
+    
     
     func configureView() {
         // TODO: - create extension UILabelExtension
-        imageView.image = #imageLiteral(resourceName: "haha")
+        imageView.image = #imageLiteral(resourceName: "demoPhoto")
         demoLabel.text = "DEMO"
         demoLabel.font = UIFont(name: "ProximaNova-Bold", size: 60)
         
