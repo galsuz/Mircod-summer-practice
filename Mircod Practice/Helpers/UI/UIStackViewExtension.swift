@@ -11,9 +11,11 @@ import UIKit
 extension UIStackView {
     convenience init(views: [UIView],
                      spacing: CGFloat = 11,
-                     axis: NSLayoutConstraint.Axis = .horizontal) {
+                     axis: NSLayoutConstraint.Axis = .horizontal,
+                     distribution: UIStackView.Distribution = .equalCentering) {
         self.init()
         self.spacing = spacing
+        self.distribution = distribution
         self.axis = axis
         views.forEach { view in
             addArrangedSubview(view)

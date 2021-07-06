@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 class LoginView: UIView, UITextFieldDelegate {
     
+    lazy var backButton = UIButton()
     lazy var logInLabel = UILabel()
     lazy var textFieldsStackView: UIStackView = UIStackView(views: [loginTextField, passwordTextField],
                                                             axis: .vertical)
@@ -21,20 +22,27 @@ class LoginView: UIView, UITextFieldDelegate {
         
         // Elements configuration
         initConstraints()
+        configureButton()
         configureTextFields()
         configurelabel()
     }
     private func addSubviews(){
+        addSubview(backButton)
         addSubview(logInLabel)
         addSubview(textFieldsStackView)
         addSubview(logInButton)
     }
     
-    private func initConstraints(){
+    private func initConstraints() {
+        backButton.snp.makeConstraints{make in
+            make.height.width.equalTo(11)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(60)
+            make.leading.equalToSuperview().inset(16)
+        }
         logInLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(32)
+            make.top.equalTo(backButton.snp.top).inset(37)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(40)
+            make.height.equalTo(30)
         }
         
         textFieldsStackView.snp.makeConstraints { make in
@@ -48,6 +56,10 @@ class LoginView: UIView, UITextFieldDelegate {
         }
     }
     
+    private func configureButton() {
+        backButton.setImage(#imageLiteral(resourceName: "Union"), for: .normal)
+    }
+    
     private func configureTextFields(){
         let textFields: [UITextField] = [loginTextField, passwordTextField]
         textFields.forEach { textField in
@@ -58,11 +70,11 @@ class LoginView: UIView, UITextFieldDelegate {
     }
     
     private func configurelabel(){
-        logInLabel.font = UIFont(name: "ProximaNovaBold", size: 25)
+        logInLabel.font = UIFont(name: "ProximaNova-Bold", size: 25)
         logInLabel.text = "Log in"
     }
     
-    // Mark: - Action
+    // MARK: - Actions
     @objc
     private func updateTextFields(){
         guard let loginText = loginTextField.text, loginText != "",
