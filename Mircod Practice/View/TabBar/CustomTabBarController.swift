@@ -23,6 +23,7 @@ class CustomTabBarController: UITabBarController {
         let vc2 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "home-grey"))
         // MARK: - when create setting - change to settingsController
         let vc3 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "settings-grey.png"))
+        // HELLO WORLD
         vc3.view.backgroundColor = .blue
         
         tabBar.tintColor = UIColor.mainOrangeColor
