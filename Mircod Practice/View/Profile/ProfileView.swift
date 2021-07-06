@@ -14,10 +14,10 @@ class ProfileView: UIView {
     lazy var nameLabel = UILabel()
     lazy var loginLabel = UILabel()
     lazy var dividerView = UIView()
-    lazy var logoutButton = UIButton(text: "Logout", cellType: .underlined)
+    lazy var logoutButton = UIButton(text: "Logout", cellType: .rightArrow)
     lazy var profileStackView = UIStackView(views: [profileImageView, nameLabel,
                                                     loginLabel, dividerView, logoutButton],
-                                            axis: .vertical)
+                                            axis: .vertical, distribution: .equalSpacing)
     
     func configureView(){
         addSubviews()
@@ -35,36 +35,39 @@ class ProfileView: UIView {
     private func initConstraints(){
         profileLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(61)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.equalTo(30)
+            make.leading.equalToSuperview().inset(30)
+//            make.height.equalTo(30)
         }
         
         profileStackView.snp.makeConstraints { make in
             make.top.equalTo(profileLabel.snp.bottom).offset(118)
             make.leading.trailing.equalToSuperview().inset(30)
-            //make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(118)
+//            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(145)
             
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(56)
-        }
+//        nameLabel.snp.makeConstraints { make in
+//            make.height.equalTo(56)
+//            make.width.equalToSuperview()
+//        }
         
-        loginLabel.snp.makeConstraints { make in
-            make.height.equalTo(19)
-        }
+//        loginLabel.snp.makeConstraints { make in
+////            make.height.equalTo(19)
+//            make.leading.equalToSuperview()
+//        }
         
         profileImageView.snp.makeConstraints { make in
             make.height.width.equalTo(120)
+//            make.leading.equalToSuperview()
         }
         
         dividerView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.width.equalToSuperview()
         }
     }
     
-    // Mark: - Customization
+    // MARK: - Customization
     private func customizeAll(){
         profileImageView.image = #imageLiteral(resourceName: "NoImage")
         customizeProfileStackView()
@@ -74,22 +77,26 @@ class ProfileView: UIView {
     
     private func customizeProfileStackView(){
         profileStackView.alignment = .center
-        profileStackView.setCustomSpacing(11, after: profileImageView)
+        profileStackView.setCustomSpacing(5, after: profileImageView)
         profileStackView.setCustomSpacing(17, after: nameLabel)
-        profileStackView.setCustomSpacing(61, after: loginLabel)
-        profileStackView.setCustomSpacing(40, after: dividerView)
+        profileStackView.setCustomSpacing(5, after: loginLabel)
+        profileStackView.setCustomSpacing(5, after: dividerView)
     }
     
     private func customizeLabels(){
         nameLabel.numberOfLines = 0
         nameLabel.text = "Pavel \nProkopev"
+        nameLabel.font = UIFont(name: "ProximaNova-Bold", size: 30)
         nameLabel.textAlignment = .center
+        nameLabel.sizeToFit()
         
         loginLabel.text = "Sartan8"
         loginLabel.textColor = .mainOrangeColor
+        loginLabel.textAlignment = .center
+        loginLabel.sizeToFit()
         
         profileLabel.text = "Profile"
-        
+        profileLabel.font = UIFont(name: "ProximaNova-Bold", size: 25)
     }
     
     private func customizeDividerView(){

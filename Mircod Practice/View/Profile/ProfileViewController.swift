@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         createProfileView()
     }
     
@@ -23,5 +24,20 @@ class ProfileViewController: UIViewController {
             make.size.equalTo(view)
         }
         profileView.configureView()
+        
+        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    @objc
+    private func logoutButtonDidPressed() {
+        //        let window:UIWindow = UIApplication.shared.delegate!.window!!
+        //        window.rootViewController = UINavigationController(rootViewController: LoggedOutViewController())
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("Couldn't get SceneDelegate ")
+        }
+        sceneDelegate.window?.rootViewController = UINavigationController(rootViewController:  LoggedOutViewController())
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
