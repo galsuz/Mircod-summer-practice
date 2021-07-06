@@ -14,7 +14,7 @@ class ProfileView: UIView {
     lazy var nameLabel = UILabel()
     lazy var loginLabel = UILabel()
     lazy var dividerView = UIView()
-    lazy var logoutButton = UIButton() // Alsu task - [6] develop: add Simple button Extension
+    lazy var logoutButton = UIButton(text: "Logout", cellType: .underlined)
     lazy var profileStackView = UIStackView(views: [profileImageView, nameLabel,
                                                     loginLabel, dividerView, logoutButton],
                                             axis: .vertical)
@@ -62,11 +62,6 @@ class ProfileView: UIView {
             make.height.equalTo(1)
             make.leading.trailing.equalToSuperview().inset(30)
         }
-        
-        logoutButton.snp.makeConstraints { make in
-            make.height.equalTo(49)
-            make.width.equalTo(145)
-        }
     }
     
     // Mark: - Customization
@@ -75,7 +70,6 @@ class ProfileView: UIView {
         customizeProfileStackView()
         customizeLabels()
         customizeDividerView()
-        customizeButton()
     }
     
     private func customizeProfileStackView(){
@@ -101,17 +95,5 @@ class ProfileView: UIView {
     private func customizeDividerView(){
         dividerView.backgroundColor = .dividerColor
     }
-    
-    
-    //Mark: - Delete/reforge after Alsu done task
-    private func customizeButton(){
-        logoutButton.setTitle("Logout", for: .normal)
-        let lineView = UIView(frame: CGRect(x: 0,
-                                            y: logoutButton.frame.size.height,
-                                            width: 139,
-                                            height: 1))
-        lineView.backgroundColor = .black
-        logoutButton.addSubview(lineView)
-    }
-
+        
 }

@@ -20,8 +20,8 @@ class CustomTabBarController: UITabBarController {
     func setupTabBar(){
         let vc1 = createNavController(vc: ProfileViewController(), image: #imageLiteral(resourceName: "profile-grey"))
         vc1.view.backgroundColor = .red
+        // MARK: change to MainViewController -->
         let vc2 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "home-grey"))
-        vc2.view.backgroundColor = .green
         let vc3 = createNavController(vc: UIViewController(), image: #imageLiteral(resourceName: "settings-grey.png"))
         vc3.view.backgroundColor = .blue
         
