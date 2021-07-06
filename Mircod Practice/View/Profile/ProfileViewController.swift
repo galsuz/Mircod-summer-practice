@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func createProfileView(){
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
         profileView = ProfileView()
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
