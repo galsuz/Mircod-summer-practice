@@ -44,6 +44,8 @@ class LoggedOutViewController: UIViewController {
     
     @objc
     private func registerButtonDidPressed() {
-        print(#function)
+        let registrationViewController = RegistrationViewController()
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(registrationViewController, animated: true)
     }
 }
