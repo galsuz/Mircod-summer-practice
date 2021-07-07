@@ -10,10 +10,39 @@ import UIKit
 class ProfileViewController: UIViewController {
     private var profileView: ProfileView!
     
+    var panelIsHidden: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         createProfileView()
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        let colorTop = #colorLiteral(red: 0.8666666667, green: 0.8941176471, blue: 0.9019607843, alpha: 1).cgColor
+        let colorBottom = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.50, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
+        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0,
+                                                                                     b: -1,
+                                                                                     c: 1,
+                                                                                     d: 0,
+                                                                                     tx: 0.5,
+                                                                                     ty: 1))
+        gradientLayer.bounds = view.bounds.insetBy(dx: -0.5 * view.bounds.size.width,
+                                                   dy: -0.5 * view.bounds.size.height)
+        gradientLayer.position = view.center
+//        view.layer.insertSublayer(gradientLayer, at: 0)
+        view.layer.sublayers?.insert(gradientLayer, at: 0)
+//        self.navigationController?.navigationBar.layer.sublayers?.insert(gradientLayer, at: 0)
+//        view.layer.insertSublayer(gradientLayer, above:)
+//        self.view.backgroundColor = UIColor.clear
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedImage(tapGestureRecognizer:)))
+        profileView.profileImageView.addGestureRecognizer(tap)
+        profileView.profileImageView.isUserInteractionEnabled = true
     }
     
     private func createProfileView(){
@@ -21,7 +50,7 @@ class ProfileViewController: UIViewController {
         profileView = ProfileView()
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
-            make.size.equalTo(view)
+            make.center.size.equalToSuperview()
         }
         profileView.configureView()
         
@@ -40,4 +69,24 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    
+    @objc
+    func tappedImage(tapGestureRecognizer: UITapGestureRecognizer) {
+        
+        UIView.animate(withDuration: 1.5) {
+            if (self.panelIsHidden) {
+                self.profileView.showImageBackroundPanelView()
+                self.profileView.backgroundPanelCameraButton.alpha = 1
+                self.profileView.backgroundPanelGalleryButton.alpha = 1
+            } else {
+                self.profileView.hideImageBackroundPanelView()
+                self.profileView.backgroundPanelCameraButton.alpha = 0
+                self.profileView.backgroundPanelGalleryButton.alpha = 0
+            }
+            self.profileView.layoutIfNeeded()
+            self.panelIsHidden.toggle()
+        }
+    }
+    
 }
