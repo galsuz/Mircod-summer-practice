@@ -44,14 +44,11 @@ class ProfileView: UIView {
         profileLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(61)
             make.leading.equalToSuperview().inset(30)
-            //            make.height.equalTo(30)
         }
         
         profileStackView.snp.makeConstraints { make in
             make.top.equalTo(profileLabel.snp.bottom).offset(118)
             make.leading.trailing.equalToSuperview().inset(30)
-            //            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(145)
-            
         }
         
         backgroundPanelCameraButton.snp.makeConstraints {make in
@@ -67,21 +64,11 @@ class ProfileView: UIView {
             make.trailing.equalTo(updateImageBackroundPanelView.snp.trailing).inset(32)
             make.top.equalTo(updateImageBackroundPanelView.snp.top).inset(52)
         }
-        
-        //        nameLabel.snp.makeConstraints { make in
-        //            make.height.equalTo(56)
-        //            make.width.equalToSuperview()
-        //        }
-        
-        //        loginLabel.snp.makeConstraints { make in
-        ////            make.height.equalTo(19)
-        //            make.leading.equalToSuperview()
-        //        }
+    
         hideImageBackroundPanelView()
         
         profileImageView.snp.makeConstraints { make in
             make.height.width.equalTo(120)
-            //            make.leading.equalToSuperview()
         }
         
         dividerView.snp.makeConstraints { make in
@@ -119,7 +106,6 @@ class ProfileView: UIView {
         
         updateImageBackroundPanelView.alpha = 1
         updateImageBackroundPanelView.backgroundColor = .profileBackgroundViewColor
-//        updateImageBackroundPanelView.backgroundColor = .red
         updateImageBackroundPanelView.layer.cornerRadius = 67.5
     }
     

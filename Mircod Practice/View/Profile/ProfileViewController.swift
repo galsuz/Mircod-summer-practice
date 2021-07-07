@@ -31,14 +31,11 @@ class ProfileViewController: UIViewController {
                                                                                      d: 0,
                                                                                      tx: 0.5,
                                                                                      ty: 1))
-        gradientLayer.bounds = view.bounds.insetBy(dx: -0.5 * view.bounds.size.width,
-                                                   dy: -0.5 * view.bounds.size.height)
+        // if change dx dy position on 0.5 from 0.8 etc - view will be okay
+        gradientLayer.bounds = view.bounds.insetBy(dx: -0.8 * view.bounds.size.width,
+                                                   dy: -0.8 * view.bounds.size.height)
         gradientLayer.position = view.center
-//        view.layer.insertSublayer(gradientLayer, at: 0)
         view.layer.sublayers?.insert(gradientLayer, at: 0)
-//        self.navigationController?.navigationBar.layer.sublayers?.insert(gradientLayer, at: 0)
-//        view.layer.insertSublayer(gradientLayer, above:)
-//        self.view.backgroundColor = UIColor.clear
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedImage(tapGestureRecognizer:)))
         profileView.profileImageView.addGestureRecognizer(tap)
