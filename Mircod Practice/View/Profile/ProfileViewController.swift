@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
         let colorBottom = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         gradientLayer.colors = [colorTop, colorBottom]
         gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.50, y: 0.5)
+        gradientLayer.startPoint = CGPoint(x: 0.60, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
         gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0,
                                                                                      b: -1,
