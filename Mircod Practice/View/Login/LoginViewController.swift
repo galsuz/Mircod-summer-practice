@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     dialogView.setTitle(text: "Error")
                     dialogView.setMessage(text: error)
+                    dialogView.setImage(image: #imageLiteral(resourceName: "failedState"))
                     dialogView.setupHidden(options: .failedStack)
                 }
             }
