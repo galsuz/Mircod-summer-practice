@@ -10,8 +10,9 @@ import UIKit
 
 protocol DialogViewDelegate: AnyObject {
     
-    func didPressColoredButton(from: DialogView)
+    func didPressColoredNextButton(from: DialogView)
     func didPressCancelButton(from: DialogView)
+    func didPressColoredBackButton(from: DialogView)
 }
 
 class DialogView: UIView {
@@ -21,9 +22,10 @@ class DialogView: UIView {
     private lazy var loadingImageView = UIImageView()
     private lazy var largeTitleLabel = UILabel()
     private lazy var messageLabel = UILabel()
-    private lazy var coloredButton = UIButton(text: "OK")
+    private lazy var coloredNextButton = UIButton(text: "OK")
+    private lazy var coloredBackButton = UIButton(text: "Retry")
     private lazy var cancelSimpleButton = UIButton(text: "Cancel connection", cellType: .underlined, width: 150)
-    private lazy var dialogStackView = UIStackView(views: [loadingImageView, largeTitleLabel, messageLabel, coloredButton, cancelSimpleButton], spacing: 38, axis: .vertical, distribution: .equalSpacing)
+    private lazy var dialogStackView = UIStackView(views: [loadingImageView, largeTitleLabel, messageLabel, coloredNextButton, coloredBackButton, cancelSimpleButton], spacing: 38, axis: .vertical, distribution: .equalSpacing)
     
     init(options: StructOptions) {
         super.init(frame: .zero)
@@ -34,8 +36,9 @@ class DialogView: UIView {
     }
     
     private func addTargetsForButtons() {
-        coloredButton.addTarget(self, action: #selector(didPressColoredButton), for: .touchUpInside)
+        coloredNextButton.addTarget(self, action: #selector(didPressColoredNextButton), for: .touchUpInside)
         cancelSimpleButton.addTarget(self, action: #selector(didPressCancelButton), for: .touchUpInside)
+        coloredBackButton.addTarget(self, action: #selector(didPressColoredBackButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -43,13 +46,18 @@ class DialogView: UIView {
     }
     
     @objc
-    private func didPressColoredButton() {
-        delegate?.didPressColoredButton(from: self)
+    private func didPressColoredNextButton() {
+        delegate?.didPressColoredNextButton(from: self)
     }
     
     @objc
-    private func didPressCancelButton(){
+    private func didPressCancelButton() {
         delegate?.didPressCancelButton(from: self)
+    }
+    
+    @objc
+    private func didPressColoredBackButton() {
+        delegate?.didPressColoredBackButton(from: self)
     }
 }
 
@@ -59,7 +67,8 @@ extension DialogView: DialogViewProtocol {
         loadingImageView.isHidden = !options.contains(.loadingImageView)
         largeTitleLabel.isHidden = !options.contains(.largeTitileLabel)
         messageLabel.isHidden = !options.contains(.messageLabel)
-        coloredButton.isHidden = !options.contains(.coloredButton)
+        coloredNextButton.isHidden = !options.contains(.coloredNextButton)
+        coloredBackButton.isHidden = !options.contains(.coloredBackButton)
         cancelSimpleButton.isHidden = !options.contains(.cancelSimpleButton)
     }
     
@@ -76,13 +85,13 @@ extension DialogView: DialogViewProtocol {
     }
     
     func setColoredButton(text: String) {
-        coloredButton.titleLabel?.text = text
+        coloredNextButton.titleLabel?.text = text
     }
     
     internal func setupDialogStack() {
         
         addSubview(dialogStackView)
-        backgroundColor = #colorLiteral(red: 0.7733864188, green: 0.7735174298, blue: 0.7733692527, alpha: 0.8)
+        backgroundColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 0.97)
         
         largeTitleLabel.numberOfLines = 0
         messageLabel.numberOfLines = 0
@@ -109,26 +118,26 @@ extension DialogView: DialogViewProtocol {
         }
     }
     
-    func setupLoadingView(){
+    func setupLoadingView() {
         loadingImageView.image = #imageLiteral(resourceName: "loadingState")
         loadingImageView.rotate()
         messageLabel.text = "Please wait"
         print("loading")
     }
     
-    func setupFailedView(){
+    func setupFailedView() {
         loadingImageView.image = #imageLiteral(resourceName: "failedState")
-        coloredButton.titleLabel?.text = "Retry"
+        coloredBackButton.titleLabel?.text = "Retry"
         print("failed")
     }
     
-    func setupSuccessView(){
+    func setupSuccessView() {
         loadingImageView.image = #imageLiteral(resourceName: "successState")
-        coloredButton.titleLabel?.text = "Ok"
-        print("succes")
+        coloredNextButton.titleLabel?.text = "Ok"
+        print("success")
     }
     
-    func initConstraints(){
+    func initConstraints() {
         
         dialogStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(107)
@@ -147,38 +156,13 @@ extension DialogView: DialogViewProtocol {
         messageLabel.snp.makeConstraints { make in
             make.height.equalTo(38)
         }
-        coloredButton.snp.makeConstraints { make in
+        
+        coloredNextButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        coloredBackButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
         }
     }
-}
-
-
-struct StructOptions: OptionSet {
-    let rawValue: Int
-    
-    static let loadingImageView = StructOptions(rawValue: 1 << 0)
-    static let largeTitileLabel = StructOptions(rawValue: 1 << 1)
-    static let messageLabel = StructOptions(rawValue: 1 << 2)
-    static let coloredButton = StructOptions(rawValue: 1 << 3)
-    static let cancelSimpleButton = StructOptions(rawValue: 1 << 4)
-    
-    static let loadingStack: StructOptions = [.loadingImageView,
-                                              .largeTitileLabel,
-                                              .messageLabel]
-    static let failedStack: StructOptions = [.loadingImageView,
-                                             .largeTitileLabel,
-                                             .messageLabel,
-                                             .coloredButton,
-                                             .cancelSimpleButton]
-    static let successStack: StructOptions = [.loadingImageView,
-                                              .largeTitileLabel,
-                                              .coloredButton]
-    
-    static let all: StructOptions = [.loadingImageView,
-                                     .largeTitileLabel,
-                                     .messageLabel,
-                                     .coloredButton,
-                                     .cancelSimpleButton]
-    
 }

@@ -83,13 +83,17 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: DialogViewDelegate {
     
-    func didPressColoredButton(from dialogView: DialogView) {
+    func didPressColoredNextButton(from dialogView: DialogView) {
         let customTabBarController = CustomTabBarController()
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(customTabBarController, animated: true)
     }
     
     func didPressCancelButton(from dialogView: DialogView) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func didPressColoredBackButton(from dialogView: DialogView) {
         dialogView.removeFromSuperview()
     }
 }
