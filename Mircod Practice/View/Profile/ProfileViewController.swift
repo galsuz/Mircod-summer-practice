@@ -17,11 +17,15 @@ class ProfileViewController: UIViewController {
     
     private func createProfileView(){
         navigationController?.navigationBar.isHidden = true
+        
         profileView = ProfileView()
+        
         view.addSubview(profileView)
+        
         profileView.snp.makeConstraints { make in
             make.size.equalTo(view)
         }
+        
         profileView.configureView()
     }
 }

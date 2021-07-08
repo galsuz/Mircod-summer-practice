@@ -80,9 +80,7 @@ class RegistrationView: UIView, UITextFieldDelegate {
     @objc
     private func updateTextFields() {
         guard let loginText = loginTextField.text, loginText != "",
-              let passwordText = passwordTextField.text, passwordText != "",
-              let firstNameText = firstNameTextField.text, firstNameText != "",
-              let secondNameText = secondNameTextField.text, secondNameText != "" else {
+              let passwordText = passwordTextField.text, passwordText != "" else {
             nextButton.changeColor(isActive: false)
             return
         }

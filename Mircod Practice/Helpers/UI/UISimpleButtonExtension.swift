@@ -16,14 +16,13 @@ enum ButtonTypes {
 
 
 extension UIButton {
-    convenience init(text: String, cellType: ButtonTypes) {
+    convenience init(text: String, cellType: ButtonTypes, height: Int = 49, width: Int = 135, fontSize: Int = 16) {
         self.init()
         self.setTitle(text, for: .normal)
         self.setTitleColor(.black, for: .normal)
-        
         snp.makeConstraints() { make in
-            make.height.equalTo(49)
-            make.width.equalTo(135)
+            make.height.equalTo(height)
+            make.width.equalTo(width)
         }
         
         switch cellType {

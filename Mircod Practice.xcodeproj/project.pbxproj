@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		04A22858268A078600984B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A22857268A078600984B7D /* AppDelegate.swift */; };
-		04A2285C268A078600984B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2285B268A078600984B7D /* ViewController.swift */; };
 		04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04A22860268A078600984B7D /* Mircod_Practice.xcdatamodeld */; };
 		04A22864268A078A00984B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A22863268A078A00984B7D /* Assets.xcassets */; };
 		04A22867268A078A00984B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A22865268A078A00984B7D /* LaunchScreen.storyboard */; };
 		04A228A3268B5E7700984B7D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A228A2268B5E7700984B7D /* UIColorExtension.swift */; };
+		6705C9D826949694002B7E2E /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705C9D726949694002B7E2E /* DialogView.swift */; };
 		670B39AE2693061600B429EC /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B39AD2693061600B429EC /* EndPointType.swift */; };
 		670B39B1269307BC00B429EC /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B39B0269307BC00B429EC /* HTTPMethod.swift */; };
 		670B39B32693082300B429EC /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B39B22693082300B429EC /* HTTPTask.swift */; };
@@ -37,6 +37,8 @@
 		6793D7E3268CE3EB00865C5C /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7DF268CE3EB00865C5C /* UITextFieldExtension.swift */; };
 		6793D7E6268CEB3200865C5C /* TabBarImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7E5268CEB3200865C5C /* TabBarImagesModel.swift */; };
 		6793D7E8268CF26200865C5C /* UITabBarControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D7E7268CF26200865C5C /* UITabBarControllerExtension.swift */; };
+		67E10F772695B86700E7BB64 /* DialogViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E10F762695B86700E7BB64 /* DialogViewProtocol.swift */; };
+		67E10F792695BD1D00E7BB64 /* UIImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E10F782695BD1D00E7BB64 /* UIImageVIewExtension.swift */; };
 		67E891062690B8240017E959 /* ProximaNovaBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67E891052690B8240017E959 /* ProximaNovaBold.ttf */; };
 		67E891082690C7A60017E959 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E891072690C7A60017E959 /* ProfileView.swift */; };
 		67E8910A2690D3670017E959 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E891092690D3670017E959 /* ProfileViewController.swift */; };
@@ -54,13 +56,13 @@
 /* Begin PBXFileReference section */
 		04A22854268A078600984B7D /* Mircod Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mircod Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A22857268A078600984B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04A2285B268A078600984B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04A22861268A078600984B7D /* Mircod_Practice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mircod_Practice.xcdatamodel; sourceTree = "<group>"; };
 		04A22863268A078A00984B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A22866268A078A00984B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A22868268A078A00984B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A228A2268B5E7700984B7D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5E1B25FE3DB73FB7456B9942 /* Pods-Mircod Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mircod Practice.debug.xcconfig"; path = "Target Support Files/Pods-Mircod Practice/Pods-Mircod Practice.debug.xcconfig"; sourceTree = "<group>"; };
+		6705C9D726949694002B7E2E /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		670B39AD2693061600B429EC /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		670B39B0269307BC00B429EC /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		670B39B22693082300B429EC /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -85,6 +87,8 @@
 		6793D7DF268CE3EB00865C5C /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		6793D7E5268CEB3200865C5C /* TabBarImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarImagesModel.swift; sourceTree = "<group>"; };
 		6793D7E7268CF26200865C5C /* UITabBarControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarControllerExtension.swift; sourceTree = "<group>"; };
+		67E10F762695B86700E7BB64 /* DialogViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewProtocol.swift; sourceTree = "<group>"; };
+		67E10F782695BD1D00E7BB64 /* UIImageVIewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageVIewExtension.swift; sourceTree = "<group>"; };
 		67E891052690B8240017E959 /* ProximaNovaBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProximaNovaBold.ttf; sourceTree = "<group>"; };
 		67E891072690C7A60017E959 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		67E891092690D3670017E959 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +144,6 @@
 				67404C46268E10500016A924 /* View */,
 				67404C47268E10560016A924 /* ViewModel */,
 				04A228A0268B5D3E00984B7D /* Helpers */,
-				04A2285B268A078600984B7D /* ViewController.swift */,
 				04A22863268A078A00984B7D /* Assets.xcassets */,
 				04A22865268A078A00984B7D /* LaunchScreen.storyboard */,
 				04A22868268A078A00984B7D /* Info.plist */,
@@ -168,6 +171,7 @@
 				6793D7E7268CF26200865C5C /* UITabBarControllerExtension.swift */,
 				6793D7DC268CE3EB00865C5C /* UIButtonExtension.swift */,
 				ED1FA8D92692F7D600AAB83A /* UISimpleButtonExtension.swift */,
+				67E10F782695BD1D00E7BB64 /* UIImageVIewExtension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -249,6 +253,7 @@
 				67E8910F2690FB320017E959 /* Settings */,
 				67E8910B2690D37B0017E959 /* Login */,
 				67E8910E2690D3C50017E959 /* Profile */,
+				67E10F752695B82F00E7BB64 /* DialogView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,6 +288,15 @@
 				6793D7E5268CEB3200865C5C /* TabBarImagesModel.swift */,
 			);
 			path = Primitive;
+			sourceTree = "<group>";
+		};
+		67E10F752695B82F00E7BB64 /* DialogView */ = {
+			isa = PBXGroup;
+			children = (
+				67E10F762695B86700E7BB64 /* DialogViewProtocol.swift */,
+				6705C9D726949694002B7E2E /* DialogView.swift */,
+			);
+			path = DialogView;
 			sourceTree = "<group>";
 		};
 		67E891022690B68B0017E959 /* Fonts */ = {
@@ -478,10 +492,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E10F772695B86700E7BB64 /* DialogViewProtocol.swift in Sources */,
 				04A22862268A078600984B7D /* Mircod_Practice.xcdatamodeld in Sources */,
+				67E10F792695BD1D00E7BB64 /* UIImageVIewExtension.swift in Sources */,
 				6793D7E8268CF26200865C5C /* UITabBarControllerExtension.swift in Sources */,
 				670FB9F7268F8EB200482ACD /* LoginNavigationController.swift in Sources */,
 				67E891132690FD510017E959 /* SettingsViewController.swift in Sources */,
+				6705C9D826949694002B7E2E /* DialogView.swift in Sources */,
 				67404C4A268E10940016A924 /* CustomTabBarController.swift in Sources */,
 				ED1FA8EE2693A7BA00AAB83A /* RegistrationViewController.swift in Sources */,
 				67404C52268E6DAC0016A924 /* LoginView.swift in Sources */,
@@ -493,7 +510,6 @@
 				ED1FA8DD2693383800AAB83A /* LoggedOutView.swift in Sources */,
 				6793D7E3268CE3EB00865C5C /* UITextFieldExtension.swift in Sources */,
 				ED1FA8DA2692F7D600AAB83A /* UISimpleButtonExtension.swift in Sources */,
-				04A2285C268A078600984B7D /* ViewController.swift in Sources */,
 				670B39BC2693157900B429EC /* NetworkRouter.swift in Sources */,
 				ED1FA8EC2693A7AC00AAB83A /* RegistrationView.swift in Sources */,
 				67404C50268E6B9D0016A924 /* LoginViewModel.swift in Sources */,

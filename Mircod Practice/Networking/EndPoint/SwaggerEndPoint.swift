@@ -20,6 +20,7 @@ public enum ConnectionAPI {
                       firstName: String,
                       lastName: String,
                       email: String)
+    case logout(login: String, password: String)
 }
 
 extension ConnectionAPI: EndPointType {
@@ -46,6 +47,8 @@ extension ConnectionAPI: EndPointType {
             return "/login/"
         case .registration:
             return "/registration/"
+        case .logout:
+            return "/logout"
         }
     }
     
@@ -54,6 +57,8 @@ extension ConnectionAPI: EndPointType {
         case .authorization:
             return .post
         case .registration:
+            return .post
+        case .logout:
             return .post
         }
     }
@@ -72,6 +77,10 @@ extension ConnectionAPI: EndPointType {
                                                        UserFields.firstName.rawValue: firstName,
                                                        UserFields.lastName.rawValue: lastName,
                                                        UserFields.email.rawValue: email],
+                                      urlParameters: nil)
+        case .logout(let login, let password):
+            return .requestParameters(bodyParameters: [UserFields.username.rawValue:login,
+                                                       UserFields.password.rawValue:password],
                                       urlParameters: nil)
         }
     }

@@ -27,7 +27,7 @@ struct NetworkManager {
     static let enviroment: NetworkEnviroment = .debug
     private let router = Router<ConnectionAPI>()
     
-    func getUserLogin(login: String,
+    func postUserLogin(login: String,
                       password: String,
                       completion: @escaping (_ userLoginResponse: Int?,_ error: String?) ->()){
         router.request(.authorization(login: login, password: password)) { data, response, error in
@@ -59,7 +59,7 @@ struct NetworkManager {
                       firstName: String = "",
                       lastName: String = "",
                       email: String = "",
-                      completion: @escaping (_ userLoginResponse: UserLoginResponse?,_ error: String?) ->()){
+                      completion: @escaping (_ userLoginResponse: Int?,_ error: String?) ->()){
         router.request(.registration(login: login,
                                      password: password,
                                      firstName: firstName,
@@ -76,12 +76,30 @@ struct NetworkManager {
                         completion(nil, NetworkResponse.noData.rawValue)
                         return
                     }
-                    do {
-                        let apiResponse = try JSONDecoder().decode(UserLoginResponse.self, from: responseData)
-                        completion(apiResponse, nil)
-                    } catch {
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    completion(response.statusCode, nil)
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func postUserLogout(login: String,
+                      password: String,
+                      completion: @escaping (_ userLoginResponse: Int?,_ error: String?) ->()){
+        router.request(.logout(login: login, password: password)) { data, response, error in
+            if error != nil {
+                completion(nil, "Please check your connection")
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
                     }
+                    completion(response.statusCode, nil)
                 case .failure(let networkFailureError):
                     completion(nil, networkFailureError)
                 }
