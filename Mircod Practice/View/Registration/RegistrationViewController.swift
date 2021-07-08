@@ -41,7 +41,6 @@ class RegistrationViewController: UIViewController {
     
     @objc
     private func backButtonDidPressed() {
-//        _ = CustomTabBarController()
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.popToRootViewController(animated: true)
     }
