@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "gallery.pdf",
       "idiom" : "universal"
     }
   ],
