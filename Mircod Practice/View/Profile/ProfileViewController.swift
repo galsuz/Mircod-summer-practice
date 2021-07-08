@@ -14,28 +14,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         createProfileView()
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        let colorTop = #colorLiteral(red: 0.8666666667, green: 0.8941176471, blue: 0.9019607843, alpha: 1).cgColor
-        let colorBottom = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.60, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
-        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0,
-                                                                                     b: -1,
-                                                                                     c: 1,
-                                                                                     d: 0,
-                                                                                     tx: 0.5,
-                                                                                     ty: 1))
-        // if change dx dy position on 0.5 from 0.8 etc - view will be okay
-        gradientLayer.bounds = view.bounds.insetBy(dx: -0.8 * view.bounds.size.width,
-                                                   dy: -0.8 * view.bounds.size.height)
-        gradientLayer.position = view.center
-        view.layer.sublayers?.insert(gradientLayer, at: 0)
+        navigationController?.customizeNavigationController()
+        navigationItem.title = "Profile"
+        CAGradientLayer().makeGradientInBackgroundView(view: view)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedImage(tapGestureRecognizer:)))
         profileView.profileImageView.addGestureRecognizer(tap)
@@ -43,8 +26,12 @@ class ProfileViewController: UIViewController {
     }
     
     private func createProfileView(){
+<<<<<<< HEAD
+//        navigationController?.navigationBar.isHidden = true
+=======
         navigationController?.navigationBar.isHidden = true
         
+>>>>>>> develop
         profileView = ProfileView()
         
         view.addSubview(profileView)
@@ -61,8 +48,6 @@ class ProfileViewController: UIViewController {
     // MARK: - Actions
     @objc
     private func logoutButtonDidPressed() {
-        //        let window:UIWindow = UIApplication.shared.delegate!.window!!
-        //        window.rootViewController = UINavigationController(rootViewController: LoggedOutViewController())
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Couldn't get SceneDelegate ")
         }

@@ -16,33 +16,49 @@ struct Settings {
 class SettingsView: UIView {
     
     private let settings = Settings()
-    lazy var settingsTableView = UITableView()
+    private lazy var settingsTableView = UITableView()
     private let settingsCellReuseIdentifier = "settingsCell"
     
-    func configureView(){
-        settingsTableView.rowHeight = 60
+    func configureView() {
         setupTableView()
-        initConstrints()
+        initConstraints()
+        settingsTableView.backgroundColor = .clear
     }
     
-    func setupTableView(){
+    func setupTableView() {
         addSubview(settingsTableView)
+        settingsTableView.isScrollEnabled = false
+        settingsTableView.tableFooterView = UIView()
         setSettingsTableViewDelegates()
         settingsTableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: settingsCellReuseIdentifier)
     }
     
-    private func initConstrints(){
+    private func initConstraints() {
+  
         settingsTableView.snp.makeConstraints { make in
-            make.size.equalToSuperview()
+//            make.leading.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(15)
+            make.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
+//            make.size.centerX.equalToSuperview()
+//            make.top.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
+//            make.top.equalToSuperview().offset(10)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
+    }
+    
+    private func setSettingsTableViewDelegates() {
+        
+        settingsTableView.delegate = self
+        settingsTableView.dataSource = self
     }
 }
 
 extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     
-    private func setSettingsTableViewDelegates(){
-        settingsTableView.delegate = self
-        settingsTableView.dataSource = self
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,13 +68,16 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     //Mark: - Hardcode because only an UI and i want to sleep
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingsTableView.dequeueReusableCell(withIdentifier: settingsCellReuseIdentifier) as! SettingsTableViewCell
-        print("Cell")
-        if indexPath.row == 1 {
-            cell.configureCell(settingName: settings.names[indexPath.row], settingImage: settings.image[indexPath.row], .withSwitch)
-            return cell
-        }
-        
-        cell.configureCell(settingName: settings.names[indexPath.row], settingImage: settings.image[indexPath.row], .standart)
+      
+        let withSwitch = indexPath.row == 1
+//        if indexPath.row == 0 {
+//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+//            tableView.separatorStyle = .none
+//        }
+        let cellType: CellType = withSwitch ? .withSwitch : .standart
+        cell.configureCell(settingName: settings.names[indexPath.row], settingImage: settings.image[indexPath.row], cellType)
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         return cell
     }
 }
