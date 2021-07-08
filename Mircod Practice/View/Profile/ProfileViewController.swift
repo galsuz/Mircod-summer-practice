@@ -44,11 +44,15 @@ class ProfileViewController: UIViewController {
     
     private func createProfileView(){
         navigationController?.navigationBar.isHidden = true
+        
         profileView = ProfileView()
+        
         view.addSubview(profileView)
+        
         profileView.snp.makeConstraints { make in
             make.center.size.equalToSuperview()
         }
+        
         profileView.configureView()
         
         profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed), for: .touchUpInside)
