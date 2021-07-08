@@ -178,12 +178,9 @@
 				6793D7E7268CF26200865C5C /* UITabBarControllerExtension.swift */,
 				6793D7DC268CE3EB00865C5C /* UIButtonExtension.swift */,
 				ED1FA8D92692F7D600AAB83A /* UISimpleButtonExtension.swift */,
-<<<<<<< HEAD
 				ED9FB3F1269712BD00810858 /* CAGradientLayerExtension.swift */,
 				ED9FB3F52697387A00810858 /* UINavigationControllerExtension.swift */,
-=======
 				67E10F782695BD1D00E7BB64 /* UIImageVIewExtension.swift */,
->>>>>>> develop
 			);
 			path = UI;
 			sourceTree = "<group>";
