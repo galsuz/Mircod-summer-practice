@@ -66,6 +66,12 @@ class ProfileViewController: UIViewController {
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Couldn't get SceneDelegate ")
         }
+        
+        UserDefaults.standard.setValue(nil, forKey: .tokenId)
+        UserDefaults.standard.setValue(nil, forKey: .username)
+        UserDefaults.standard.setValue(nil, forKey: .firstName)
+        UserDefaults.standard.setValue(nil, forKey: .lastName)
+        
         sceneDelegate.window?.rootViewController = UINavigationController(rootViewController:  LoggedOutViewController())
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.popToRootViewController(animated: true)
