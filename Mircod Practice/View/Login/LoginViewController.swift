@@ -56,12 +56,16 @@ class LoginViewController: UIViewController {
                 }
             }
             if let userData = userData {
-                print(userData)
+                print(userData.userData.username)
+                UserDefaults.standard.setValue(userData.token, forKey: .tokenId)
+                UserDefaults.standard.setValue(userData.userData.username, forKey: .username)
+                UserDefaults.standard.setValue(userData.userData.firstName, forKey: .firstName)
+                UserDefaults.standard.setValue(userData.userData.lastName, forKey: .lastName)
+                UserDefaults.standard.setValue(userData.userData.email, forKey: .email)
                 DispatchQueue.main.async {
                     dialogView.setTitle(text: "Login Success")
                     dialogView.setupType(options: .successStack)
                 }
-                
             }
         }
     }
