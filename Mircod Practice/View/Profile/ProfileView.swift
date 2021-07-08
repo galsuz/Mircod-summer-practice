@@ -106,12 +106,12 @@ class ProfileView: UIView {
     
     private func customizeLabels(){
         nameLabel.numberOfLines = 0
-        nameLabel.text = "Pavel \nProkopev"
+        nameLabel.text = "\(UserDefaults.standard.string(forKey: .firstName)!) \n\(UserDefaults.standard.string(forKey: .lastName)!)"
         nameLabel.font = UIFont(name: "ProximaNova-Bold", size: 30)
         nameLabel.textAlignment = .center
         nameLabel.sizeToFit()
         
-        loginLabel.text = "Sartan8"
+        loginLabel.text = "\(UserDefaults.standard.string(forKey: .username)!)"
         loginLabel.textColor = .mainOrangeColor
         loginLabel.textAlignment = .center
         loginLabel.sizeToFit()

@@ -26,12 +26,20 @@ class ProfileViewController: UIViewController {
     }
     
     private func createProfileView(){
+<<<<<<< HEAD
 //        navigationController?.navigationBar.isHidden = true
+=======
+        navigationController?.navigationBar.isHidden = true
+        
+>>>>>>> develop
         profileView = ProfileView()
+        
         view.addSubview(profileView)
+        
         profileView.snp.makeConstraints { make in
             make.center.size.equalToSuperview()
         }
+        
         profileView.configureView()
         
         profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed), for: .touchUpInside)
@@ -43,6 +51,12 @@ class ProfileViewController: UIViewController {
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
             fatalError("Couldn't get SceneDelegate ")
         }
+        
+        UserDefaults.standard.setValue(nil, forKey: .tokenId)
+        UserDefaults.standard.setValue(nil, forKey: .username)
+        UserDefaults.standard.setValue(nil, forKey: .firstName)
+        UserDefaults.standard.setValue(nil, forKey: .lastName)
+        
         sceneDelegate.window?.rootViewController = UINavigationController(rootViewController:  LoggedOutViewController())
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.popToRootViewController(animated: true)
