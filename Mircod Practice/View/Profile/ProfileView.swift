@@ -10,7 +10,6 @@ import SnapKit
 
 class ProfileView: UIView {
     var updateImageBackroundPanelViewWidthConstraint: Constraint!
-    lazy var profileLabel = UILabel()
     lazy var profileImageView = UIImageView()
     lazy var updateImageBackroundPanelView = UIView()
     lazy var backgroundPanelCameraButton = UIButton()
@@ -32,7 +31,7 @@ class ProfileView: UIView {
     }
     
     private func addSubviews(){
-        addSubview(profileLabel)
+//        addSubview(profileLabel)
         addSubview(updateImageBackroundPanelView)
         addSubview(backgroundPanelCameraButton)
         addSubview(backgroundPanelGalleryButton)
@@ -41,13 +40,9 @@ class ProfileView: UIView {
     
     private func initConstraints() {
         
-        profileLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(61)
-            make.leading.equalToSuperview().inset(30)
-        }
-        
         profileStackView.snp.makeConstraints { make in
-            make.top.equalTo(profileLabel.snp.bottom).offset(118)
+//            make.top.equalTo(profileLabel.snp.bottom).offset(118)
+            make.top.equalToSuperview().offset(209)
             make.leading.trailing.equalToSuperview().inset(30)
         }
         
@@ -120,9 +115,6 @@ class ProfileView: UIView {
         loginLabel.textColor = .mainOrangeColor
         loginLabel.textAlignment = .center
         loginLabel.sizeToFit()
-        
-        profileLabel.text = "Profile"
-        profileLabel.font = UIFont(name: "ProximaNova-Bold", size: 25)
     }
     
     private func customizeDividerView(){

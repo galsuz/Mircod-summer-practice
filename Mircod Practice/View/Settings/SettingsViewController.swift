@@ -15,12 +15,18 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         createSettingsView()
         
+        navigationItem.title = "Settings"
+        navigationController?.customizeNavigationController()
+        
+        CAGradientLayer().makeGradientInBackgroundView(view: view)
     }
     
-    private func createSettingsView(){
-        navigationController?.navigationBar.isHidden = true
+    private func createSettingsView() {
+//        navigationController?.navigationBar.isHidden = true
         settingsView = SettingsView()
+                
         view.addSubview(settingsView)
+        
         settingsView.snp.makeConstraints { make in
             make.size.equalTo(view)
         }
