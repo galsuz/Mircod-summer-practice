@@ -46,4 +46,7 @@ extension UIColor {
     
     /// #979797
     static let profileBackgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8941176471, blue: 0.9019607843, alpha: 1)
+    
+    /// #FCFCFE
+    static let profileBackgroundViewColor = #colorLiteral(red: 0.9906815886, green: 0.9909000993, blue: 0.996922195, alpha: 1)
 }

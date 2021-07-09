@@ -6,53 +6,61 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileView: UIView {
-    
-    lazy var profileLabel = UILabel()
+    var updateImageBackroundPanelViewWidthConstraint: Constraint!
     lazy var profileImageView = UIImageView()
+    lazy var updateImageBackroundPanelView = UIView()
+    lazy var backgroundPanelCameraButton = UIButton()
+    lazy var backgroundPanelGalleryButton = UIButton()
     lazy var nameLabel = UILabel()
     lazy var loginLabel = UILabel()
     lazy var dividerView = UIView()
-    lazy var logoutButton = UIButton(text: "Logout", cellType: .underlined)
+    lazy var logoutButton = UIButton(text: "Logout", cellType: .rightArrow)
     lazy var profileStackView = UIStackView(views: [profileImageView, nameLabel,
                                                     loginLabel, dividerView, logoutButton],
-                                            axis: .vertical)
+                                            axis: .vertical,
+                                            distribution: .fill)
     
     func configureView(){
         addSubviews()
         customizeAll()
         initConstraints()
-        
-        backgroundColor = .profileBackgroundColor
+//        backgroundColor = .profileBackgroundColor
     }
     
     private func addSubviews(){
-        addSubview(profileLabel)
+//        addSubview(profileLabel)
+        addSubview(updateImageBackroundPanelView)
+        addSubview(backgroundPanelCameraButton)
+        addSubview(backgroundPanelGalleryButton)
         addSubview(profileStackView)
     }
     
-    private func initConstraints(){
-        profileLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(61)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.equalTo(30)
-        }
+    private func initConstraints() {
         
         profileStackView.snp.makeConstraints { make in
-            make.top.equalTo(profileLabel.snp.bottom).offset(118)
+//            make.top.equalTo(profileLabel.snp.bottom).offset(118)
+            make.top.equalToSuperview().offset(209)
             make.leading.trailing.equalToSuperview().inset(30)
-            //make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(118)
-            
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(56)
+        backgroundPanelCameraButton.snp.makeConstraints {make in
+            make.height.equalTo(30)
+            make.width.equalTo(34)
+            make.leading.equalTo(updateImageBackroundPanelView.snp.leading).inset(38)
+            make.top.equalTo(updateImageBackroundPanelView.snp.top).inset(53)
         }
         
-        loginLabel.snp.makeConstraints { make in
-            make.height.equalTo(19)
+        backgroundPanelGalleryButton.snp.makeConstraints{ make in
+            make.height.equalTo(32)
+            make.width.equalTo(32)
+            make.trailing.equalTo(updateImageBackroundPanelView.snp.trailing).inset(32)
+            make.top.equalTo(updateImageBackroundPanelView.snp.top).inset(52)
         }
+    
+        hideImageBackroundPanelView()
         
         profileImageView.snp.makeConstraints { make in
             make.height.width.equalTo(120)
@@ -60,16 +68,18 @@ class ProfileView: UIView {
         
         dividerView.snp.makeConstraints { make in
             make.height.equalTo(1)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.width.equalToSuperview()
         }
     }
     
-    // Mark: - Customization
+    // MARK: - Customization
     private func customizeAll(){
         profileImageView.image = #imageLiteral(resourceName: "NoImage")
         customizeProfileStackView()
         customizeLabels()
         customizeDividerView()
+        customizeView()
+        customizeButtons()
     }
     
     private func customizeProfileStackView(){
@@ -80,20 +90,50 @@ class ProfileView: UIView {
         profileStackView.setCustomSpacing(40, after: dividerView)
     }
     
+    private func customizeButtons() {
+        backgroundPanelCameraButton.setImage(#imageLiteral(resourceName: "camera"), for: .normal)
+        backgroundPanelCameraButton.alpha = 0
+        backgroundPanelGalleryButton.setImage(#imageLiteral(resourceName: "gallery"), for: .normal)
+        backgroundPanelGalleryButton.alpha = 0
+    }
+    
+    private func customizeView() {
+        
+        updateImageBackroundPanelView.alpha = 1
+        updateImageBackroundPanelView.backgroundColor = .profileBackgroundViewColor
+        updateImageBackroundPanelView.layer.cornerRadius = 67.5
+    }
+    
     private func customizeLabels(){
         nameLabel.numberOfLines = 0
-        nameLabel.text = "Pavel \nProkopev"
+        nameLabel.text = "\(UserDefaults.standard.string(forKey: .firstName)!) \n\(UserDefaults.standard.string(forKey: .lastName)!)"
+        nameLabel.font = UIFont(name: "ProximaNova-Bold", size: 30)
         nameLabel.textAlignment = .center
+        nameLabel.sizeToFit()
         
-        loginLabel.text = "Sartan8"
+        loginLabel.text = "\(UserDefaults.standard.string(forKey: .username)!)"
         loginLabel.textColor = .mainOrangeColor
-        
-        profileLabel.text = "Profile"
-        
+        loginLabel.textAlignment = .center
+        loginLabel.sizeToFit()
     }
     
     private func customizeDividerView(){
         dividerView.backgroundColor = .dividerColor
     }
-        
+    
+    func hideImageBackroundPanelView() {
+        updateImageBackroundPanelView.snp.remakeConstraints { make in
+            self.updateImageBackroundPanelViewWidthConstraint = make.width.equalTo(0).constraint
+            make.height.equalTo(135)
+            make.center.equalTo(profileImageView)
+        }
+    }
+    
+    func showImageBackroundPanelView() {
+        updateImageBackroundPanelView.snp.remakeConstraints { remake in
+            remake.width.equalToSuperview().inset(30)
+            remake.height.equalTo(135)
+            remake.center.equalTo(profileImageView)
+        }
+    }
 }
