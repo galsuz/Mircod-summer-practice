@@ -32,5 +32,6 @@ class SettingsTableViewCell: UITableViewCell {
         self.imageView?.image = settingImage
         
         settingSwitch.isHidden = cellType != .withSwitch
+        settingSwitch.onTintColor = .mainOrangeColor
     }
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 
-// Mark: - Just for example (struct)
 struct Settings {
     let image: [UIImage] = [#imageLiteral(resourceName: "Icon1"),#imageLiteral(resourceName: "Icon2"),#imageLiteral(resourceName: "icon3")]
     let names: [String] = ["Temperature settings", "Push-notifications", "About application"]
@@ -39,7 +38,7 @@ class SettingsView: UIView {
 //            make.leading.trailing.equalToSuperview().inset(30)
             make.trailing.equalToSuperview().inset(15)
             make.leading.equalToSuperview()
-            make.centerX.equalToSuperview()
+//            make.centerX.equalToSuperview()
 //            make.size.centerX.equalToSuperview()
 //            make.top.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)

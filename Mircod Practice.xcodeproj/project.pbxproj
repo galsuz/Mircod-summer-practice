@@ -534,7 +534,6 @@
 				67404C4A268E10940016A924 /* CustomTabBarController.swift in Sources */,
 				ED1FA8EE2693A7BA00AAB83A /* RegistrationViewController.swift in Sources */,
 				67404C52268E6DAC0016A924 /* LoginView.swift in Sources */,
-				6793D7E6268CEB3200865C5C /* TabBarImagesModel.swift in Sources */,
 				67E10F8D269750CD00E7BB64 /* BLEManager.swift in Sources */,
 				670B39B826930D1400B429EC /* URLParameterEncoder.swift in Sources */,
 				670B39B626930BEF00B429EC /* ParameterEncoder.swift in Sources */,
