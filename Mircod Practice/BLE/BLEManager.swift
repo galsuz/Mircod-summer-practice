@@ -12,10 +12,28 @@ class BLEManager: NSObject {
     
     var temperatureBlePeripheral: CBPeripheral?
     private var centralManager: CBCentralManager!
+    private var peripherals: [CBPeripheral] = []
     
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    func getPeripherals() -> [String] {
+        var peripheralNames: [String] = []
+        if peripherals.count != 0 {
+            peripherals.forEach { peripheral in
+                peripheralNames.append(peripheral.name! ?? "нет имени")
+            }
+        }
+        return peripheralNames
+    }
+    
+    func connectToPeripheral(indexPath: Int) {
+        temperatureBlePeripheral = peripherals[indexPath]
+        guard let periphiral = temperatureBlePeripheral else { return }
+        centralManager.connect(periphiral)
+        
     }
     
 }
@@ -36,18 +54,18 @@ extension BLEManager: CBCentralManagerDelegate {
             print("central state is .poweredOff")
         case .poweredOn:
             print("central state is .poweredOn")
-            centralManager.scanForPeripherals(withServices: [.advertiseUUID])
+            centralManager.scanForPeripherals(withServices: [.advertiseUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
         @unknown default:
             print("Сломалося")
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print(peripheral)
-        if (peripheral.name ?? "").contains("Tempcod4C") {
-            centralManager.connect(peripheral)
-            temperatureBlePeripheral = peripheral
+        guard let name = peripheral.name else {
+            return
         }
+        print(name)
+        peripherals.append(peripheral)
     }
     
 }

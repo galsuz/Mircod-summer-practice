@@ -6,87 +6,55 @@
 //
 
 import UIKit
+
 import CoreBluetooth
-class DeviceTableViewController: UITableViewController, CBCentralManagerDelegate {
 
-    var peripherals: [CBPeripheral] = []
-    var manager: CBCentralManager? = nil
-    var parentView: MainViewController? = nil
+class DeviceTableViewController: UITableViewController {
 
-
+    var peripheralNames: [String] = []
+    var bleManager: BLEManager!
+    var myTimer : Timer!
+    
+    convenience init(manager: BLEManager) {
+        self.init()
+        bleManager = manager
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myTimer = Timer(timeInterval: 5.0, target: self, selector: #selector(refresh), userInfo: nil, repeats: true)
+                RunLoop.main.add(self.myTimer, forMode: .default)
+        tableView.isScrollEnabled = false
+        tableView.rowHeight = 60
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        scanBLEDevice()
-        print("start scan")
-    }
-    func scanBLEDevice(){
-        manager?.scanForPeripherals(withServices: nil, options: nil)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60.0) {
-            self.stopScanForBLEDevice()
-        }
-
-    }
-    func stopScanForBLEDevice(){
-        manager?.stopScan()
-        print("scan stopped")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return peripherals.count
+        return peripheralNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scanTableCell", for: indexPath)
-        let peripheral = peripherals[indexPath.row]
-        cell.textLabel?.text = peripheral.name
+        let cell = UITableViewCell()
+        cell.textLabel?.font = UIFont(name: "ProximaNova-Bold", size: 14)
+        cell.textLabel?.text = peripheralNames[indexPath.row]
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let peripheral = peripherals[indexPath.row]
-        manager?.connect(peripheral, options: nil)
+        bleManager.connectToPeripheral(indexPath: indexPath.row)
+    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        60
+//    }
+    
+    @objc
+    func refresh() {
+        peripheralNames = bleManager.getPeripherals()
+        tableView.reloadData()
     }
 
-    //CBCentralMaganerDelegate code
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if (!peripherals.contains(peripheral)){
-        peripherals.append(peripheral)
-            }
-        self.tableView.reloadData()
-        }
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print(central.state)
-    }
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        // pass reference to connected peripheral to parentview
-        //parentView?.mainPeripheral = peripheral
-        //peripheral.delegate = parentView
-        peripheral.discoverServices(nil)
-        // set manager's delegate view to parent so it can call relevant disconnect methods
-        //manager?.delegate = parentView
-        //parentView?.customiseNavigationBar()
-        if let navController = self.navigationController{
-            navController.popViewController(animated: true)
+}
 
-        }
-        print("Connected to "+peripheral.name!)
-    }
-
-    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print(error!)
-    }
-
-
+class TableViewCell: UITableViewCell {
+    
 }
