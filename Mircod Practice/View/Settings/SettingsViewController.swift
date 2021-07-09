@@ -22,7 +22,6 @@ class SettingsViewController: UIViewController {
     }
     
     private func createSettingsView() {
-//        navigationController?.navigationBar.isHidden = true
         settingsView = SettingsView()
                 
         view.addSubview(settingsView)

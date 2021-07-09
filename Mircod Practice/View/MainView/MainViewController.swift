@@ -16,6 +16,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createMainView()
+        navigationController?.customizeNavigationController()
+        navigationItem.title = "Home"
+        CAGradientLayer().makeGradientInBackgroundView(view: view)
 
     }
     
@@ -35,5 +38,4 @@ class MainViewController: UIViewController {
         let deviceTableViewController = DeviceTableViewController()
         navigationController?.pushViewController(deviceTableViewController, animated: true)
     }
-
 }
