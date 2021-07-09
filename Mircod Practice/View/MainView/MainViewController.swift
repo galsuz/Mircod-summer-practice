@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     private var mainView: MainView!
+    private var bleManager: BLEManager!
     let deviceButton = UIButton()
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class MainViewController: UIViewController {
 
     }
     
-    func createMainView(){
+    func createMainView() {
         navigationController?.navigationBar.isHidden = false
         mainView = MainView()
         view.addSubview(mainView)
@@ -34,8 +35,9 @@ class MainViewController: UIViewController {
     }
     
     @objc
-    func addDeviceButtonPressed(){
-        let deviceTableViewController = DeviceTableViewController()
+    func addDeviceButtonPressed() {
+        bleManager = BLEManager()
+        let deviceTableViewController = DeviceTableViewController(manager: bleManager)
         navigationController?.pushViewController(deviceTableViewController, animated: true)
     }
 }
