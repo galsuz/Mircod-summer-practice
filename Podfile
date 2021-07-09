@@ -8,4 +8,5 @@ target 'Mircod Practice' do
   # Pods for Mircod Practice
 pod 'SnapKit'
 pod 'Charts'
+pod 'PNChart'
 end

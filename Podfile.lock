@@ -2,21 +2,29 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
   - SnapKit (5.0.1)
+  - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
   - Charts
+  - PNChart
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - Charts
+    - PNChart
     - SnapKit
+    - UICountingLabel
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
 
-PODFILE CHECKSUM: 629f335086ac14d9096c58595a2a8355fd375eda
+PODFILE CHECKSUM: eb82d4e7175c041a5a93e168457d8177149c191f
 
 COCOAPODS: 1.10.1
