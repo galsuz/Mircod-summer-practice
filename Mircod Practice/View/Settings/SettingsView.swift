@@ -35,14 +35,9 @@ class SettingsView: UIView {
     private func initConstraints() {
   
         settingsTableView.snp.makeConstraints { make in
-//            make.leading.trailing.equalToSuperview().inset(30)
             make.trailing.equalToSuperview().inset(15)
             make.leading.equalToSuperview()
-//            make.centerX.equalToSuperview()
-//            make.size.centerX.equalToSuperview()
-//            make.top.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
-//            make.top.equalToSuperview().offset(10)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
@@ -64,11 +59,11 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         return 3
     }
     
-    //Mark: - Hardcode because only an UI and i want to sleep
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingsTableView.dequeueReusableCell(withIdentifier: settingsCellReuseIdentifier) as! SettingsTableViewCell
       
         let withSwitch = indexPath.row == 1
+// MARK: - If we have a delete separator, but this method delete first and second separator, not only first :(
 //        if indexPath.row == 0 {
 //            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
 //            tableView.separatorStyle = .none

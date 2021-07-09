@@ -27,11 +27,9 @@ class ProfileView: UIView {
         addSubviews()
         customizeAll()
         initConstraints()
-//        backgroundColor = .profileBackgroundColor
     }
     
     private func addSubviews(){
-//        addSubview(profileLabel)
         addSubview(updateImageBackroundPanelView)
         addSubview(backgroundPanelCameraButton)
         addSubview(backgroundPanelGalleryButton)

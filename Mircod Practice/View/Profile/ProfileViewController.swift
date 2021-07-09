@@ -14,7 +14,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.isHidden = true
         createProfileView()
         navigationController?.customizeNavigationController()
         navigationItem.title = "Profile"
@@ -26,7 +25,6 @@ class ProfileViewController: UIViewController {
     }
     
     private func createProfileView(){
-//        navigationController?.navigationBar.isHidden = true
         profileView = ProfileView()
         
         view.addSubview(profileView)
