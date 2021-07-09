@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
     
     private var loginView: LoginView!
     private var networkManager: NetworkManager!
-    private var bleManager: BLEManager!
+    
     override func viewDidLoad() {
         
         networkManager = NetworkManager()
@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         createLoginView()
-        bleManager = BLEManager()
     }
     
     private func createLoginView(){
@@ -73,13 +72,12 @@ class LoginViewController: UIViewController {
     
     @objc
     private func pushToTabBarController() {
-        
         let customTabBarController = CustomTabBarController()
-    
+        
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(customTabBarController, animated: true)
     }
-
+    
     @objc
     private func backButtonDidPressed() {
         self.navigationController?.navigationBar.isHidden = true

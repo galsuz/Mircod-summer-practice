@@ -10,8 +10,6 @@ import CoreBluetooth
 
 class BLEManager: NSObject {
     
-    let particlePeripheral = ParticlePeripheral()
-    
     var temperatureBlePeripheral: CBPeripheral?
     private var centralManager: CBCentralManager!
     
@@ -38,7 +36,7 @@ extension BLEManager: CBCentralManagerDelegate {
             print("central state is .poweredOff")
         case .poweredOn:
             print("central state is .poweredOn")
-            centralManager.scanForPeripherals(withServices: [particlePeripheral.advertiseUUID])
+            centralManager.scanForPeripherals(withServices: [.advertiseUUID])
         @unknown default:
             print("Сломалося")
         }
@@ -82,25 +80,31 @@ extension BLEManager: CBPeripheralDelegate {
         if peripheral == temperatureBlePeripheral {
             print("Connecnting", peripheral.description)
             peripheral.delegate = self
-            peripheral.discoverServices([particlePeripheral.batteryService, particlePeripheral.timestampTemperatureMeasurmentCBUUID])
+            peripheral.discoverServices([.batteryService, .timestampTemperatureCharCBUUID, .timestampTemperatureMeasurmentCBUUID])
         }
         centralManager.stopScan()
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         switch characteristic.uuid {
-        case particlePeripheral.timestampTemperatureCharCBUUID:
-            print([UInt8](characteristic.value!))
+        case .timestampTemperatureCharCBUUID:
+            print("temperature char: \([UInt8](characteristic.value!))")
+            if let tempChar: TemperatureCharacteristic = .init(characteristic.value) {
+                print("Temperature ", tempChar)
+            }
             break
-        case particlePeripheral.batteryService:
-            print([UInt8](characteristic.value!))
+        case .batteryService:
+            print("battery service: \([UInt8](characteristic.value!))")
+        case .timestampTemperatureMeasurmentCBUUID:
+            print("temperature measurment: \([UInt8](characteristic.value!))")
+
         default:
             break
         }
     }
-//
-//    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-//        <#code#>
-//    }
+
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("disconnect")
+    }
     
 }
